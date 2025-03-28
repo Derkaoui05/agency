@@ -126,5 +126,5 @@ Distributed under the MIT license. See `LICENSE` for details.
 ## Contact
 
 - **Email**: [your.email@example.com](mailto:derkaouidevl@gmail.com)
-- **Website**: [sparkstudio.com](https://sparkstudio.vercel.app)
-- **GitHub**: [github.com/yourusername](https://github.com/agency)
+- **Website**: [sparkstudio](sparkstudio.vercel.app)
+- **GitHub**: [github.com/Derkaoui05](https://github.com/Derkaoui05/agency)
