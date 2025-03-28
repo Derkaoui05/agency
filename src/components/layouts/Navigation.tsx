@@ -47,7 +47,9 @@ export function Navigation({ items, className }: NavBarProps) {
                 isActive && "bg-muted text-primary"
               )}
             >
-              <span className="hidden md:inline">{item.name}</span>
+              <span className={cn("hidden md:inline", isMobile && "text-red-500")}>
+                {item.name}
+              </span>
               <span className="md:hidden">
                 <Icon size={18} strokeWidth={2.5} />
               </span>
