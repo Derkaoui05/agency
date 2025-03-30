@@ -51,8 +51,8 @@ Before you begin, make sure you have installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/spark-studio.git
-   cd spark-studio
+   git clone https://github.com/Derkaoui05/agency.git
+   cd agency
    ```
 2. Install dependencies:
    ```bash
@@ -126,5 +126,5 @@ Distributed under the MIT license. See `LICENSE` for details.
 ## Contact
 
 - **Email**: [your.email@example.com](mailto:derkaouidevl@gmail.com)
-- **Website**: [sparkstudio.com](https://sparkstudio.vercel.app)
-- **GitHub**: [github.com/yourusername](https://github.com/agency)
+- **Website**: [sparkstudio](sparkstudio.vercel.app)
+- **GitHub**: [github.com/Derkaoui05](https://github.com/Derkaoui05/agency)
