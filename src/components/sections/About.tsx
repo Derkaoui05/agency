@@ -55,7 +55,7 @@ function About() {
             <p className="text-muted-foreground">
               What began as a small team working out of a converted warehouse
               has grown into a full-service digital agency with a global client
-              base. But despite our growth, we've remained true to our founding
+              base. But despite our growth, we&apos;ve remained true to our founding
               principle: combining stunning design with technical excellence to
               create digital experiences that drive real business results.
             </p>
@@ -113,7 +113,7 @@ function About() {
                       Data-Informed Decisions
                     </h4>
                     <p className="text-muted-foreground">
-                      Beautiful design isn't enough—it needs to perform. We use
+                      Beautiful design isn&apos;t enough—it needs to perform. We use
                       data and analytics to guide our decisions and measure
                       impact.
                     </p>
@@ -130,7 +130,7 @@ function About() {
                       Collaborative Partnership
                     </h4>
                     <p className="text-muted-foreground">
-                      We don't just work for you; we work with you. Your
+                      We don&apos;t just work for you; we work with you. Your
                       insights and expertise are invaluable throughout the
                       process.
                     </p>
@@ -148,7 +148,7 @@ function About() {
                     </h4>
                     <p className="text-muted-foreground">
                       The digital landscape never stands still, and neither do
-                      we. We're constantly exploring new technologies and
+                      we. We&apos;re constantly exploring new technologies and
                       approaches.
                     </p>
                   </div>
@@ -174,7 +174,7 @@ function About() {
                 <p className="text-muted-foreground">
                   Behind every Spark Studio project is a diverse team of
                   creative thinkers, technical experts, and strategic minds.
-                  We've assembled a team that brings together:
+                  We&apos;ve assembled a team that brings together:
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start">
@@ -278,7 +278,7 @@ function About() {
                       Long-Term Thinking
                     </h4>
                     <p className="text-muted-foreground">
-                      We don't just build for today; we create solutions
+                      We don&apos;t just build for today; we create solutions
                       designed to grow and evolve with your business over time.
                     </p>
                   </div>
@@ -327,11 +327,11 @@ function About() {
 
         <div className="bg-muted rounded-xl p-8 md:p-12 text-center">
           <h3 className="text-2xl font-bold mb-4">
-            Let's create something extraordinary together
+            Let&apos;s create something extraordinary together
           </h3>
           <p className="max-w-[800px] mx-auto text-muted-foreground md:text-lg mb-8">
-            At Spark Studio, we're not just building websites—we're crafting
-            digital experiences that transform businesses. Whether you're
+            At Spark Studio, we&apos;re not just building websites—we&apos;re crafting
+            digital experiences that transform businesses. Whether you&apos;re
             looking to launch a new brand, revitalize your digital presence, or
             create a custom application, we bring the perfect blend of
             creativity, technical expertise, and strategic thinking to make it
@@ -353,5 +353,3 @@ export default About;
 // digital presence and achieve their goals. Our client-centered approach means we listen first, then create
 // solutions that perfectly align with your vision and business objectives. We don't just build websites—we
 // build lasting partnerships.
-
-// Spark Studio
