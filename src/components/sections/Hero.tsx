@@ -57,7 +57,7 @@ const exampleImages = [
 
 function Hero() {
   return (
-    <section className="w-full h-screen overflow-hidden md:overflow-visible flex flex-col top-10 items-center justify-center relative">
+    <section className="w-full h-screen overflow-hidden md:overflow-visible flex flex-col  items-center justify-center relative" id="home">
       <Floating sensitivity={-0.5} className="h-full">
         <FloatingElement
           depth={0.5}

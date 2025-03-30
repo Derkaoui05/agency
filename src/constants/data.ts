@@ -57,10 +57,10 @@ export const blogs: BlogProps[] = [
 
 export const navigationData: NavigationProps[] = [
     { name: "Home", url: "/", icon: Home },
-    { name: "About", url: "/", icon: User },
-    { name: "Services", url: "/", icon: Zap },
-    { name: "Testimonials", url: "/", icon: Hammer },
-    { name: "Blogs", url: "/", icon: Paintbrush },
+    { name: "About", url: "/about", icon: User },
+    { name: "Services", url: "/services", icon: Zap },
+    { name: "Testimonials", url: "/testimonials", icon: Hammer },
+    { name: "Blogs", url: "/blogs", icon: Paintbrush },
 ];
 
 
