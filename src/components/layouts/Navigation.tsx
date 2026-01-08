@@ -1,80 +1,110 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { NavigationProps } from "@/types";
+'use client'
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+// import { FaBriefcase, FaUser, FaFileAlt } from 'react-icons/fa';
+// import { GoHomeFill } from "react-icons/go";
+import Link from 'next/link';
+import { Inter } from 'next/font/google';
+import { Briefcase, File, Home, User } from 'lucide-react';
 
-interface NavBarProps {
-  items: NavigationProps[];
-  className?: string;
-}
+const inter = Inter({ subsets: ["latin"], weight: "500" });
 
-export function Navigation({ items, className }: NavBarProps) {
-  const [activeTab, setActiveTab] = useState(items[0].name);
+function Navigation() {
+  const [activeTab, setActiveTab] = useState('Home');
   const [isMobile, setIsMobile] = useState(false);
+  const tabs = [
+    { name: 'Home', url: '#', icon: <Home /> },
+    { name: 'About', url: '#', icon: <User /> },
+    { name: 'Projects', url: '#', icon: <Briefcase /> },
+    { name: 'Resume', url: '#', icon: <File /> }
+  ];
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    handleResize(); 
+    window.addEventListener('resize', handleResize); 
+
+    return () => {
+      window.removeEventListener('resize', handleResize); 
+    };
   }, []);
 
-  return (
-    <div
-      className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
-        className
-      )}
-    >
-      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-xl shadow-black/40">
-        {items.map((item) => {
-          const Icon = item.icon;
-          const isActive = activeTab === item.name;
+  const getLeftPosition = (tabName:string) => {
+    // Adjust the positioning of the lamp according to your content
+    if (isMobile) {
+      // Mobile view
+      switch (tabName) {
+        case 'Home':
+          return 'calc(0% + 16px)';
+        case 'About':
+          return 'calc(23% + 2px)';
+        case 'Projects':
+          return 'calc(22% + 2px)';
+        case 'Resume':
+          return 'calc(22% + 2px)';
+      }
+    } else {
+      // Desktop view
+      switch (tabName) {
+        case 'Home':
+          return 'calc(0% + 44px)';
+        case 'About':
+          return 'calc(30% + 2px)';
+        case 'Projects':
+          return 'calc(32% + 2px)';
+        case 'Resume':
+          return 'calc(32% + 2px)';
+      }
+    }
+  };
 
-          return (
-            <Link
-              key={item.name}
-              href={item.url}
-              onClick={() => setActiveTab(item.name)}
-              className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
-                "text-foreground/80 hover:text-primary",
-                isActive && "bg-muted text-primary"
-              )}
-            >
-              <span className={cn("hidden md:inline", isMobile && "text-red-500")}>
-                {item.name}
-              </span>
-              <span className="md:hidden">
-                <Icon size={18} strokeWidth={2.5} />
-              </span>
-              {isActive && (
-                <motion.div
-                  layoutId="lamp"
-                  className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
-                  initial={false}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 30,
-                  }}
-                >
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
-                    <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2"></div>
-                    <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1"></div>
-                    <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2"></div>
-                  </div>
-                </motion.div>
-              )}
-            </Link>
-          );
-        })}
+  return (
+    <div className='fixed bottom-0 sm:top-0 left-1/2 transform -translate-x-1/2 z-50 mb-6 sm:pt-6'>
+      <div className={`${inter.className} flex items-center gap-3 bg-white/5 dark:bg-black/5 border border-gray-500/20 dark:border-gray-400/20 backdrop-blur-lg py-1 px-1 rounded-full shadow-lg shadow-black dark:shadow-white/10`}>
+        {tabs.map((tab) => (
+          <Link
+            key={tab.name}
+            href={tab.url}
+            onClick={() => setActiveTab(tab.name)}
+            className={`relative cursor-pointer text-sm text-white dark:text-gray-200 px-6 py-2 rounded-full ${
+              activeTab === tab.name ? 'bg-zinc-500 dark:bg-zinc-700' : ''
+            }`}
+            style={{
+              backdropFilter: 'blur(10px)',
+              backgroundColor:
+                activeTab === tab.name 
+                  ? 'rgba(255, 255, 255, 0.2)' 
+                  : 'transparent'
+            }}
+          >
+            <span className="hidden md:inline">{tab.name}</span>
+            <span className="md:hidden">{tab.icon}</span>
+            {activeTab === tab.name && (
+              <motion.div
+                layoutId="lamp"
+                className="absolute left-1/2 transform -translate-x-1/2 -top-2 w-8 h-1 bg-white dark:bg-gray-200 rounded-t-md"
+                initial={false}
+                transition={{
+                  type: 'spring',
+                  stiffness: 300,
+                  damping: 30
+                }}
+                style={{ left: getLeftPosition(tab.name) }}
+              >
+                {/* Lamp elements */}
+                <motion.div className="absolute w-10 h-12 bg-white dark:bg-gray-200 rounded-full blur shadow-lg opacity-10 -top-3" />
+                <motion.div className="absolute w-12 h-12 bg-white dark:bg-gray-200 rounded-full blur shadow-lg opacity-20 -top-3 -left-1" />
+                <motion.div className="absolute w-8 h-8 bg-white dark:bg-gray-200 rounded-full blur shadow-lg opacity-10 -top-2" />
+                <motion.div className="absolute w-6 h-6 bg-white dark:bg-gray-200 rounded-full blur shadow-lg opacity-10 -top-1" />
+              </motion.div>
+            )}
+          </Link>
+        ))}
       </div>
     </div>
   );
 }
+export default Navigation;
